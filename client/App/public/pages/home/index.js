@@ -23,11 +23,11 @@ Template.publicPagesHome.events({
 
     // Call the api and populate the template
     Meteor.call("weather", zip, function (err, res) {
-      console.log(res.name);
-      // Session.set("city", res.name);
-      // Session.set("description", res.weather[0].description);
-      // Session.set("temperature", Math.round(res.main.temp) + "°");
-      // Session.set("icon", res.weather[0].icon);
+      console.log(res);
+      Session.set("city", res.name);
+      Session.set("description", res.weather[0].description);
+      Session.set("temperature", Math.round(res.main.temp) + "°");
+      Session.set("icon", res.weather[0].icon);
     });
 
     // Clear form

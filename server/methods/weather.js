@@ -7,10 +7,11 @@ Meteor.methods({
     var apiUrl =
       "http://api.openweathermap.org/data/2.5/weather?zip=" +
       zip +
-      ",us&units=imperial&APPID=" +
-      apiKey;
+      "&appid=" +
+      apiKey +
+      "&lang=tr";
     // query the API
-    var response = fetch(apiUrl).data;
+    var response = HTTP.get(apiUrl).data;
     return response;
   },
 });
