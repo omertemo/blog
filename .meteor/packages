@@ -36,3 +36,5 @@ fortawesome:fontawesome
 fetch
 session
 http
+accounts-ui
+accounts-password

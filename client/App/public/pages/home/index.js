@@ -14,24 +14,25 @@ Template.publicPagesHome.helpers({
 });
 
 Template.publicPagesHome.events({
-  "submit .zip-code": function (event) {
+  "submit .city-name": function (event) {
     // Prevent default browser form submit
     event.preventDefault();
 
     // Get value from form element
-    var zip = event.target.zip.value;
+    var city = event.target.city.value;
 
     // Call the api and populate the template
-    Meteor.call("weather", zip, function (err, res) {
+    Meteor.call("weather", city, function (err, res) {
       console.log(res);
       Session.set("city", res.name);
       Session.set("description", res.weather[0].description);
       Session.set("temperature", Math.round(res.main.temp) + "°");
+      console.log(res.main);
       Session.set("icon", res.weather[0].icon);
     });
 
     // Clear form
-    event.target.zip.value = "";
+    event.target.city.value = "";
   },
 });
 
