@@ -1,4 +1,4 @@
-Template.publicPagesHome.helpers({
+Template.publicPageHome.helpers({
   city: function () {
     return Session.get("city");
   },
@@ -13,7 +13,7 @@ Template.publicPagesHome.helpers({
   },
 });
 
-Template.publicPagesHome.events({
+Template.publicPageHome.events({
   "submit .city-name": function (event) {
     // Prevent default browser form submit
     event.preventDefault();
@@ -26,7 +26,7 @@ Template.publicPagesHome.events({
       console.log(res);
       Session.set("city", res.name);
       Session.set("description", res.weather[0].description);
-      Session.set("temperature", Math.round(res.main.temp) + "°");
+      Session.set("temperature", Math.round(res.main.temp - 270) + "°");
       console.log(res.main);
       Session.set("icon", res.weather[0].icon);
     });
@@ -36,7 +36,7 @@ Template.publicPagesHome.events({
   },
 });
 
-// Template.publicPagesHome.helpers({
+// Template.publicPageHome.helpers({
 // create: function() {
 
 // },
@@ -48,7 +48,7 @@ Template.publicPagesHome.events({
 // },
 // });
 
-// Template.publicPagesHome.events({
+// Template.publicPageHome.events({
 // 'click #foo': function(event, template) {
 
 // }
