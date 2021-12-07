@@ -1,0 +1,78 @@
+<template name="publicModalTitleUpdate">
+  {{#let _title=(appUtil.temp.get 'title')}}
+  <div class="modal" id="brdPublicModalTitleUpdateModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Title düzenle</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        {{#with _title}}
+        <div class="modal-body">
+          <form id="brdPublicModalTitleUpdateForm">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="brdPublicModalTitleUpdateName"
+                name="name"
+                value="{{name}}"
+                required
+                placeholder=" "
+              />
+              <label for="brdPublicModalTitleUpdateName">Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="brdPublicModalTitleUpdateDescription"
+                name="description"
+                value="{{description}}"
+                placeholder=" "
+              />
+              <label for="brdPublicModalTitleUpdateDescription"
+                >Description</label
+              >
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="brdPublicModalTitleUpdateAuthor"
+                name="author"
+                value="{{author}}"
+                placeholder=" "
+              />
+              <label for="brdPublicModalTitleUpdateAuthor">Author</label>
+            </div>
+          </form>
+        </div>
+        {{/with}}
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            form="brdPublicModalTitleUpdateForm"
+            class="btn btn-primary"
+          >
+            Güncele
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/let}}
+</template>
