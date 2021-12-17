@@ -3,11 +3,12 @@
   <div class="post-preview">
     <a href="post.html">
       <h2 class="post-title">
-        {{name}}
+        {{name}} {{#if currentUser}}
         <div class="float-end">
           {{> publicComponentControlMenu id="title" updateRole="title.update"
           deleteRole="title.delete" data=this}}
         </div>
+        {{/if}}
       </h2>
       <h3 class="post-subtitle">{{description}}</h3>
     </a>

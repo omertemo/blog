@@ -2,6 +2,8 @@ import SimpleSchema from "simpl-schema";
 
 new ValidatedMethod({
   name: "titles.create",
+  mixins: [SignedInMixin, RoleMixin],
+  roles: ["roles.admin"],
   validate: new SimpleSchema({
     title: TitleSchema,
   }).validator(),

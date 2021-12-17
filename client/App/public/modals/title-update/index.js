@@ -35,6 +35,7 @@ Template.publicModalTitleUpdate.events({
 
     Meteor.call("titles.update", obj, function (error, result) {
       if (error) {
+        ErrorHandler.show(error);
         console.log("error", error);
       }
 

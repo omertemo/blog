@@ -10,13 +10,6 @@ Meteor.methods({
       "&appid=" +
       apiKey +
       "&lang=tr";
-    // var apiUrl =
-    //   "http://api.openweathermap.org/data/2.5/weather?city=" +
-    //   city +
-    //   "&appid=" +
-    //   apiKey +
-    //   "&lang=tr";
-    // query the API
     var response = HTTP.get(apiUrl).data;
     return response;
   },
