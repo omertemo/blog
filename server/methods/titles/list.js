@@ -12,6 +12,7 @@ new ValidatedMethod({
     this.unblock();
 
     const { options } = data;
+    // return Fetch(Titles, {}, options, "titles");
 
     return Titles.find({}).fetch();
   },

@@ -15,7 +15,20 @@
   </header>
   <!-- Main Content-->
 
+  <!-- SEARCH BUTTON -->
   <div class="container px-4 px-lg-5">
+    <div class="ms-auto">
+      <div class="input-group mb-3">
+        <input
+          type="search"
+          class="form-control brd-title-search"
+          placeholder="Ara"
+        />
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+    </div>
+    <!-- SEARCH BUTTON END-->
+
     <!-- Ekle Butonu-->
     {{#if currentUser}}
     <div class="ms-2">
@@ -32,12 +45,12 @@
     <!-- Ekle Butonu Son-->
 
     <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
+      <div class="col-10">
         <!-- Post preview-->
         {{#each _titles}} {{> publicComponentTitleCard title=this }} {{/each}}
 
         <!-- Pager -->
-        <div class="d-flex justify-content-end mb-4">
+        <div class="d-flex justify-content-end my-4">
           <a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
         </div>
       </div>

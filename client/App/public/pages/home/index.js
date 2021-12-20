@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
+import { Index, MongoDBEngine } from "meteor/easy:search";
 
 Template.publicPageHome.onCreated(function () {
   this.state = new ReactiveDict(null, {
     titles: [],
   });
+  // const docs = TitlesIndex.search({ title: "Yapay Zeka" }).fetch();
 });
 
 Template.publicPageHome.onRendered(function () {
@@ -20,7 +22,7 @@ Template.publicPageHome.onRendered(function () {
         console.log("error", error);
       }
       if (result) {
-        console.log(result);
+        // console.log(TitlesIndex.search("hanoi").fetch());
         self.state.set("titles", result);
       }
     });
@@ -28,8 +30,10 @@ Template.publicPageHome.onRendered(function () {
 });
 
 Template.publicPageHome.events({
-  "click .brd-delete": function (event, template) {
-    const title = this;
+  "click .brd-title-remove": function (event, template) {
+    event.preventDefault();
+
+    const title = this.data;
 
     console.log(this);
 
@@ -53,6 +57,7 @@ Template.publicPageHome.events({
 
             if (error) {
               console.log("error", error);
+              alert(error);
             }
 
             AppUtil.refreshTokens.set("titles", Random.id());
@@ -61,6 +66,7 @@ Template.publicPageHome.events({
       }
     });
   },
+
   "click .brd-update": function (event, template) {
     const title = this;
 
@@ -76,4 +82,23 @@ Template.publicPageHome.events({
     AppUtil.temp.set("title", this.data);
     $("#brdPublicModalTitleUpdateModal").modal("show");
   },
+
+  // FOR SEARCH BUTTON
+  ////////////////////////
+  "keyup .brd-title-search, input .brd-title-search": function (
+    event,
+    template
+  ) {
+    event.preventDefault();
+
+    const search = event.target.value;
+
+    if (template.timeout) {
+      clearTimeout(template.timeout);
+    }
+  },
+});
+Template.publicPageHome.helpers({
+  TitlesIndex: () => TitlesIndex,
+  // TitlesIndex.search("hanoi").fetch();
 });
