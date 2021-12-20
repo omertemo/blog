@@ -6,7 +6,6 @@
     <div class="card-body">
       <!-- User or Not -->
       {{#if isInRole 'roles.admin'}}
-      <!-- {{#if currentUser}} -->
       <div class="float-end fs-2">
         {{> publicComponentControlMenu id="title" updateRole="title.update"
         deleteRole="title.delete" data=this}}
