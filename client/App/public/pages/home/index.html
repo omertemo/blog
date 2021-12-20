@@ -30,7 +30,7 @@
     <!-- SEARCH BUTTON END-->
 
     <!-- Ekle Butonu-->
-    {{#if currentUser}}
+    {{#if isInRole 'roles.admin'}}
     <div class="ms-2">
       <button
         class="btn btn-success btn-sm float-end"

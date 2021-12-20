@@ -13,7 +13,6 @@ Migrations.add({
         lastName: "Admin",
       },
     });
-
-    Roles.addUsersToRoles(userId, "roles.admin", null);
+    Roles.addUsersToRoles(userId, "roles.admin", Roles.GLOBAL_GROUP);
   },
 });

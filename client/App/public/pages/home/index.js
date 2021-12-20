@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import { Index, MongoDBEngine } from "meteor/easy:search";
 
 Template.publicPageHome.onCreated(function () {
   this.state = new ReactiveDict(null, {
@@ -16,13 +15,12 @@ Template.publicPageHome.onRendered(function () {
 
     Loading.show();
     Meteor.call("titles.list", {}, function (error, result) {
-      Loading.hide();
-
       if (error) {
         console.log("error", error);
       }
       if (result) {
         // console.log(TitlesIndex.search("hanoi").fetch());
+        Loading.hide();
         self.state.set("titles", result);
       }
     });
@@ -65,14 +63,6 @@ Template.publicPageHome.events({
         );
       }
     });
-  },
-
-  "click .brd-update": function (event, template) {
-    const title = this;
-
-    console.log(this);
-
-    AppUtil.temp.set("title", this);
   },
 
   "click .brd-title-update": function (event, template) {

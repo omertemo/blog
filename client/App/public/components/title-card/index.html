@@ -5,8 +5,8 @@
 
     <div class="card-body">
       <!-- User or Not -->
-      <!-- {{#if isUserInRole '5fTNsHFYHaoKG82QL' roles.user}} -->
-      {{#if currentUser}}
+      {{#if isInRole 'roles.admin'}}
+      <!-- {{#if currentUser}} -->
       <div class="float-end fs-2">
         {{> publicComponentControlMenu id="title" updateRole="title.update"
         deleteRole="title.delete" data=this}}
@@ -20,7 +20,7 @@
         >
       </h3>
       <p class="card-text">{{author}}</p>
-      <a href="#" class="btn btn-danger float-end"
+      <a href="#" class="btn btn-danger float-end brd-title-like"
         ><i class="fa fa-heart fs-3"></i
       ></a>
     </div>
