@@ -1,67 +1,34 @@
 <template name="publicPageHome">
-  {{#let _titles=(state.get 'titles') _notFound=(state.get 'notFound')}}
-
-  <header class="masthead" style="background-image: url('mountain.jpg')">
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
-          <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Boootstrap</span>
+          <div class="post-heading text-center">
+            <h1>Title</h1>
+            <h2 class="subheading">Description</h2>
+            <span class="meta">
+              Posted by
+              <a href="#!">Author</a>
+              on (Ne zaman güncellendiyse(Ay-Yıl))
+            </span>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <!-- Main Content-->
-
-  <!-- SEARCH BUTTON -->
-  <div class="container px-4 px-lg-5">
-    <div class="ms-auto">
-      <div class="input-group mb-3">
-        <input
-          type="search"
-          class="form-control brd-title-search"
-          placeholder="Ara"
-        />
-        <span class="input-group-text" id="basic-addon1">@</span>
-      </div>
-    </div>
-    <!-- SEARCH BUTTON END-->
-
-    <!-- Ekle Butonu-->
-    {{#if isInRole 'roles.admin'}}
-    <div class="ms-2">
-      <button
-        class="btn btn-success btn-sm float-end"
-        data-bs-toggle="modal"
-        data-bs-target="#brdPublicModalTitleCreateModal"
+  <div>
+    <div class="col-12 mb-3">
+      <label for="announcementCreateDescription"
+        >{{_ 'announcements.modals.announcementCreate' 'description'}}</label
       >
-        Ekle
-      </button>
+      <input
+        type="text"
+        class="form-control"
+        id="announcementCreateDescription"
+        name="description"
+        placeholder="{{_ 'announcements.modals.announcementCreate' 'description'}}"
+      />
     </div>
-    {{/if}}
-
-    <!-- Ekle Butonu Son-->
-
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-10">
-        <!-- Post preview-->
-        {{#each _titles}} {{> publicComponentTitleCard title=this }} {{/each}}
-
-        <!-- Pager -->
-        <div class="d-flex justify-content-end my-4">
-          <a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
-        </div>
-      </div>
-    </div>
+    <button id="save">Save</button>
   </div>
-
-  <!-- WEATHER -->
-  <div class="container bg-info badge-border-radius">
-    {{> publicComponentWeather}}
-  </div>
-  <!-- WEATHER END-->
-
-  {{/let}} {{> publicModalTitleCreate}} {{> publicModalTitleUpdate}}
 </template>

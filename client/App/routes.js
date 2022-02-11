@@ -32,3 +32,10 @@ FlowRouter.route("/auth/sign-in", {
     this.render("authLayoutDefault", { page: "authPagesSignIn" });
   },
 });
+
+FlowRouter.route("/post/:id", {
+  name: "public.contentPost",
+  action: function (params, queryParams) {
+    this.render("publicLayoutDefault", { page: "publicPageContentPost" });
+  },
+});

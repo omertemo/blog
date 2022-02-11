@@ -7,7 +7,7 @@
       <!-- User or Not -->
       {{#if isInRole 'roles.admin'}}
       <div class="float-end fs-2">
-        {{> publicComponentControlMenu id="title" updateRole="title.update"
+        {{> publicComponentDropdownMenu id="title" updateRole="title.update"
         deleteRole="title.delete" data=this}}
       </div>
       {{/if}}
@@ -19,6 +19,9 @@
         >
       </h3>
       <p class="card-text">{{author}}</p>
+      <a class="btn btn-success btn-sm float-end" href="/post/{{_id}}"
+        >Makaleye Git</a
+      >
       <a href="#" class="btn btn-danger float-end brd-title-like"
         ><i class="fa fa-heart fs-3"></i
       ></a>
